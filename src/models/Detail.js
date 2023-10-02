@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 
-const Detail=mongoose.schema({
+const Details= new mongoose.Schema({
     brandname:String,
     brandicon:String,
     links:[
@@ -10,5 +10,5 @@ const Detail=mongoose.schema({
         },
     ],
 });
-
-module.exports=mongoose.model("detail",Detail)
+const details = mongoose.model("Details",Details);
+module.exports= {details};

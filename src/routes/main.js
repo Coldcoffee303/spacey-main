@@ -1,23 +1,23 @@
 const express=require("express");
 const routes=express.Router();
 
-const {d}=require("../models/Detail")
-
-routes.get("/",async  (req,res)=> {
-    const details=await Detail.findOne({"_id":""});
-    const slides=await Slider.find()
-
+const {details}=require("../models/Detail")
+const {slider}=require("../models/Slider")
+routes.get("/",async (req,res)=> {
+    const newDetails=await details.find();
+    const newSlides=await slider.find()
+    console.log(newSlides);
     res.render("index",{
-        details:details,
-        slides:slides
+        details:newDetails,
+        slides:newSlides
     })
 });
 
 routes.get("/list",async (req,res)=> {
-    const details=await Detail.findOne({"_id":""});
+    const newDetails=await details.find();
 
     res.render("index",{
-        details:details
+        details:newDetails
     })
 });
 
